@@ -1,0 +1,3 @@
+[submodule "Wpf-Mvvm-Libraries"]
+	path = Wpf-Mvvm-Libraries
+	url = git@github.com:xventrux/Wpf-Mvvm-Libraries.git
