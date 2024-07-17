@@ -1,6 +1,7 @@
-﻿using System.Configuration;
-using System.Data;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
+using Wpf.Mvvm;
+using Wpf.Navigation;
 
 namespace Client;
 
@@ -9,5 +10,25 @@ namespace Client;
 /// </summary>
 public partial class App : Application
 {
+    private readonly ServiceProvider _serviceProvider;
+    private readonly IStartup _startup;
+
+    public App()
+    {
+        IServiceCollection services = new ServiceCollection();
+        _startup = new Startup();
+
+        _startup.ConfigureServices(services);
+
+        _serviceProvider = services.BuildServiceProvider();
+    }
+
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        base.OnStartup(e);
+
+        INavigationService navigationService = _serviceProvider.GetRequiredService<INavigationService>();
+        navigationService.ShowWindow(_startup.GetStartWindowViewModelType());
+    }
 }
 
