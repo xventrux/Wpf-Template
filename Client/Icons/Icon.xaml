@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Client.Icons.Icon"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Client.Icons"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type local:Icon}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type local:Icon}">
+                        <TextBlock FontFamily="{DynamicResource Icons}" Foreground="{Binding RelativeSource={RelativeSource AncestorType=local:Icon}, Path=Foreground}" Text="{Binding RelativeSource={RelativeSource AncestorType=local:Icon}, Path=IconText}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+</UserControl>
