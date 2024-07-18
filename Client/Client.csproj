@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Wpf-Mvvm-Libraries\Wpf.Mvvm\Wpf.Mvvm.csproj" />
     <ProjectReference Include="..\Wpf-Mvvm-Libraries\Wpf.Navigation\Wpf.Navigation.csproj" />
+    <ProjectReference Include="..\Wpf.UI\Wpf.UI.csproj" />
   </ItemGroup>
 
 </Project>
