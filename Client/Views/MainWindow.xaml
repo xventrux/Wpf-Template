@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="450" Width="800">
+        Title="{DynamicResource m_MainWindow_Title}" Height="450" Width="800">
     <Grid Background="{DynamicResource BackgroundColor}">
-        <Button Style="{DynamicResource PrimaryButton}" Command="{Binding SwitchThemeCommand}" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Click me!"/>
+        <Button Style="{DynamicResource PrimaryButton}" Command="{Binding ButtonCommand}" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{DynamicResource m_MainWindow_CentralBtn}"/>
     </Grid>
 </Window>

@@ -1,6 +1,6 @@
-﻿using Client.Delegates;
-using System.Security.AccessControl;
-using System.Windows.Input;
+﻿using System.Windows.Input;
+using Wpf.Localization;
+using Wpf.Localization.Interfaces;
 using Wpf.Mvvm;
 using Wpf.UI;
 
@@ -8,25 +8,26 @@ namespace Client.ViewModels
 {
     public class MainViewModel : WindowViewModel
     {
-        private readonly SetThemeDelegate _setTheme;
-        private readonly GetThemeDelegate _getTheme;
+        private readonly ILocalization _localization;
+        private readonly IUserInterface _ui;
 
-        public MainViewModel(SetThemeDelegate setTheme, GetThemeDelegate getTheme)
+        public MainViewModel(ILocalization localization, IUserInterface ui)
         {
-            _setTheme = setTheme;
-            _getTheme = getTheme;
+            _localization = localization;
+            _ui = ui;
 
             Title = "Главное окно";
 
-            SwitchThemeCommand = new RelayCommand(SwitchThemeCommandHandle);
+            ButtonCommand = new RelayCommand(ButtonCommandHandle);
             
         }
 
-        public ICommand SwitchThemeCommand { get; }
+        public ICommand ButtonCommand { get; }
 
-        private void SwitchThemeCommandHandle()
+        private void ButtonCommandHandle()
         {
-            _setTheme(_getTheme() == ApplicationTheme.Dark ? ApplicationTheme.Light : ApplicationTheme.Dark);
+            _ui.Theme = _ui.Theme == ApplicationTheme.Dark ? ApplicationTheme.Light : ApplicationTheme.Dark;
+            _localization.Lang = _localization.Lang == ApplicationLang.Rus ? ApplicationLang.Eng : ApplicationLang.Rus;
         }
     }
 }

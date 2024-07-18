@@ -1,8 +1,9 @@
-﻿using Client.Delegates;
-using Client.ViewModels;
+﻿using Client.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using Wpf.Localization.Interfaces;
 using Wpf.Mvvm;
 using Wpf.Navigation.Extensions;
+using Wpf.UI;
 
 namespace Client
 {
@@ -12,8 +13,10 @@ namespace Client
         {
             services.AddNavigationService();
 
+            services.AddSingleton<ILocalization, Localization>();
+            services.AddSingleton<IUserInterface, UI>();
+
             ConfigureWindows(services);
-            ConfigureDelegates(services);
         }
 
         public Type GetStartWindowViewModelType()
@@ -24,16 +27,6 @@ namespace Client
         private void ConfigureWindows(IServiceCollection services)
         {
             services.AddWindow<MainWindow, MainViewModel>();
-        }
-
-        private void ConfigureDelegates(IServiceCollection services)
-        {
-            services.AddSingleton<SetThemeDelegate>(sp => theme =>
-            {
-                App.SetTheme(theme);
-            });
-
-            services.AddSingleton<GetThemeDelegate>(sp => () => App.GetTheme());
         }
     }
 }
