@@ -3,10 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:icons="clr-namespace:Client.Icons"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
         Title="{DynamicResource m_MainWindow_Title}" Height="450" Width="800">
     <Grid Background="{DynamicResource BackgroundColor}">
-        <Button Style="{DynamicResource PrimaryButton}" Command="{Binding ButtonCommand}" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{DynamicResource m_MainWindow_CentralBtn}"/>
+        <Button Style="{DynamicResource PrimaryButton}" Command="{Binding ButtonCommand}" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <icons:Icon FontSize="16" VerticalAlignment="Center" IconText="{x:Static icons:IconFont.Home}" Margin="0 0 5 0"/>
+                <TextBlock Text="{DynamicResource m_MainWindow_CentralBtn}"/>
+            </StackPanel>
+            
+        </Button>
+        
     </Grid>
 </Window>

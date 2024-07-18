@@ -27,7 +27,7 @@ namespace Client.ViewModels
         private void ButtonCommandHandle()
         {
             _ui.Theme = _ui.Theme == ApplicationTheme.Dark ? ApplicationTheme.Light : ApplicationTheme.Dark;
-            _localization.Lang = _localization.Lang == ApplicationLang.Rus ? ApplicationLang.Eng : ApplicationLang.Rus;
+            //_localization.Lang = _localization.Lang == ApplicationLang.Rus ? ApplicationLang.Eng : ApplicationLang.Rus;
         }
     }
 }

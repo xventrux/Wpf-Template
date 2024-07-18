@@ -6,8 +6,6 @@
     <SolidColorBrush x:Key="BackgroundColor" Color="#1C1C1C"/>
     <SolidColorBrush x:Key="TextColor" Color="#FAFAFA"/>
 
-    <SolidColorBrush x:Key="PrimaryColor" Color="#af45d6"/>
-    <SolidColorBrush x:Key="PrimaryColor2" Color="#a33ac9"/>
-    <SolidColorBrush x:Key="PrimaryColor3" Color="#952fba"/>
+    
 
 </ResourceDictionary>
